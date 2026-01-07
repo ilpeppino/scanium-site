@@ -1,0 +1,193 @@
+:root {
+  /* PHASE 2 — BRAND COLOR ENFORCEMENT */
+  --scanium-blue: #1f4bff; /* PRIMARY brand color */
+  --scanium-yellow: #ffd400; /* ACCENT only (initials) */
+  --text-primary: #050b18; /* Deep navy text */
+  --text-muted: rgba(5, 11, 24, 0.7);
+  --bg-primary: #f4f6fb; /* Light background */
+
+  --font-family: "Inter", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  --transition-default: 160ms ease;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--scanium-blue);
+  text-decoration: none;
+}
+
+.container {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.site-header {
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(5, 11, 24, 0.08);
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 0;
+}
+
+.brand-lockup {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--scanium-blue);
+}
+
+/* PHASE 3 — RESPONSIVE FIX: LOGO (CRITICAL) */
+/* WHY: Logo must remain secondary and never dominate the viewport. */
+.brand__logo {
+  max-height: 48px;
+  max-width: 48px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+@media (max-width: 480px) {
+  .brand__logo {
+    max-height: 36px;
+    max-width: 36px;
+  }
+}
+
+.brand-name {
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+main {
+  min-height: calc(100vh - 120px);
+  background: linear-gradient(180deg, rgba(31, 75, 255, 0.08), rgba(31, 75, 255, 0) 55%) var(--bg-primary);
+  display: flex;
+  align-items: center;
+}
+
+.hero {
+  width: 100%;
+  padding: clamp(48px, 10vh, 120px) 0;
+}
+
+.hero__content {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+/* PHASE 3 — HERO TYPOGRAPHY */
+.hero__title {
+  /* Fix: Use lower bound suitable for mobile to prevent overflow */
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  line-height: 1.15;
+  font-weight: 600;
+  color: var(--scanium-blue);
+  margin: 0;
+}
+
+.s-initial {
+  color: var(--scanium-yellow);
+  font-weight: 700;
+}
+
+.hero__description {
+  margin: 32px auto 0;
+  max-width: 48ch;
+  color: var(--text-muted);
+  font-size: clamp(1.05rem, 2.6vw, 1.3rem);
+}
+
+.hero__cta {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.play-badge {
+  display: inline-flex;
+  padding: 6px 0;
+  transition: opacity var(--transition-default);
+}
+
+.play-badge:hover,
+.play-badge:focus-visible {
+  opacity: 0.8;
+}
+
+/* PHASE 3 — GOOGLE PLAY BADGE (NON-NEGOTIABLE) */
+.play-badge img {
+  max-height: 48px;
+  max-width: 180px;
+  width: auto;
+  height: auto;
+}
+
+@media (max-width: 480px) {
+  .play-badge img {
+    max-height: 44px;
+    max-width: 160px;
+  }
+}
+
+.site-footer {
+  padding: 32px 0 40px;
+  text-align: center;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  background-color: rgba(255, 255, 255, 0.8);
+  border-top: 1px solid rgba(5, 11, 24, 0.08);
+}
+
+.footer-links {
+  margin-bottom: 12px;
+}
+
+.footer-links a {
+  margin: 0 12px;
+  color: var(--scanium-blue);
+  transition: opacity var(--transition-default);
+}
+
+.footer-links a:hover,
+.footer-links a:focus-visible {
+  opacity: 0.7;
+}
+
+@media (max-width: 640px) {
+  .hero__description {
+    margin-top: 24px;
+  }
+
+  .hero__cta {
+    justify-content: center;
+  }
+}
