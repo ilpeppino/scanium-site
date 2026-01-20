@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scanium - Account Deletion</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        h2 {
+            color: #555;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: #666;
+        }
+
+        .warning {
+            background: #fff3cd;
+            border-left: 4px solid #ff9800;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .warning strong {
+            color: #ff6f00;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .info-box {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            color: #666;
+        }
+
+        .form-group {
+            margin: 25px 0;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #444;
+        }
+
+        input[type="email"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        input[type="email"]:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 14px 28px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(102, 126, 234, 0.3);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .success {
+            background: #d4edda;
+            border: 2px solid #28a745;
+            color: #155724;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            display: none;
+        }
+
+        .error {
+            background: #f8d7da;
+            border: 2px solid #dc3545;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            display: none;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .retention-info {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 25px;
+                margin: 20px auto;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Account Deletion Request</h1>
+
+        <p>Use this form to request deletion of your Scanium account if you no longer have access to the app.</p>
+
+        <div class="warning">
+            <strong>Warning: This action is permanent and cannot be undone.</strong>
+            Deleting your account will permanently remove all your data from our systems.
+        </div>
+
+        <h2>What will be deleted:</h2>
+        <ul>
+            <li>Your account profile (email, display name, profile picture)</li>
+            <li>All authentication sessions</li>
+            <li>eBay marketplace connections and stored tokens</li>
+            <li>All draft and published listings</li>
+            <li>Scan history and item data</li>
+        </ul>
+
+        <div class="retention-info">
+            <strong>Data Retention:</strong> Some anonymized data may be retained for legal compliance, security, and fraud prevention purposes (such as aggregated usage statistics and security logs). This data cannot be linked back to your identity.
+        </div>
+
+        <div class="info-box">
+            <strong>Alternative:</strong> If you still have the Scanium app installed, you can delete your account directly from Settings → Account → Delete Account.
+        </div>
+
+        <form id="deletionForm">
+            <div class="form-group">
+                <label for="email">Your Account Email</label>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="email@example.com"
+                    required
+                    autocomplete="email"
+                >
+            </div>
+
+            <button type="submit" id="submitBtn">
+                Request Account Deletion
+            </button>
+        </form>
+
+        <div id="successMessage" class="success">
+            <strong>Verification email sent!</strong>
+            <p>We've sent a verification email to your address. Please check your inbox and click the link to confirm account deletion.</p>
+            <p><strong>Important:</strong> The verification link expires in 1 hour.</p>
+        </div>
+
+        <div id="errorMessage" class="error">
+            <strong>Error</strong>
+            <p id="errorText"></p>
+        </div>
+
+        <a href="website/PRIVACY.html" class="back-link">← Back to Privacy Policy</a>
+    </div>
+
+    <script>
+        const form = document.getElementById('deletionForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const successMessage = document.getElementById('successMessage');
+        const errorMessage = document.getElementById('errorMessage');
+        const errorText = document.getElementById('errorText');
+
+        // Get backend URL from query parameter or use default
+        const urlParams = new URLSearchParams(window.location.search);
+        const backendUrl = urlParams.get('backend') || 'https://scanium.gtemp1.com';
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const email = document.getElementById('email').value;
+
+            // Hide previous messages
+            successMessage.style.display = 'none';
+            errorMessage.style.display = 'none';
+
+            // Disable submit button
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending verification email...';
+
+            try {
+                const response = await fetch(`${backendUrl}/v1/account/delete-by-email`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email }),
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    successMessage.style.display = 'block';
+                    form.style.display = 'none';
+                } else {
+                    throw new Error(data.error?.message || 'Failed to request account deletion');
+                }
+            } catch (error) {
+                errorText.textContent = error.message || 'An unexpected error occurred. Please try again later.';
+                errorMessage.style.display = 'block';
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Request Account Deletion';
+            }
+        });
+
+        // Handle confirmation token if present in URL
+        const token = urlParams.get('token');
+        if (token) {
+            confirmDeletion(token);
+        }
+
+        async function confirmDeletion(token) {
+            successMessage.style.display = 'none';
+            errorMessage.style.display = 'none';
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Confirming deletion...';
+
+            try {
+                const response = await fetch(`${backendUrl}/v1/account/delete/confirm`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ token }),
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    document.querySelector('h1').textContent = 'Account Deleted';
+                    document.querySelector('.container p').textContent = 'Your account has been successfully deleted. All your data has been permanently removed from our systems.';
+                    form.style.display = 'none';
+                    document.querySelector('.warning').style.display = 'none';
+                    document.querySelector('h2').style.display = 'none';
+                    document.querySelector('ul').style.display = 'none';
+                    document.querySelector('.retention-info').style.display = 'none';
+                    document.querySelector('.info-box').style.display = 'none';
+
+                    successMessage.innerHTML = '<strong>Success!</strong><p>Your Scanium account has been permanently deleted. Thank you for using Scanium.</p>';
+                    successMessage.style.display = 'block';
+                } else {
+                    throw new Error(data.error?.message || 'Failed to confirm account deletion');
+                }
+            } catch (error) {
+                errorText.textContent = error.message || 'Invalid or expired verification link.';
+                errorMessage.style.display = 'block';
+                form.style.display = 'block';
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Request Account Deletion';
+            }
+        }
+    </script>
+</body>
+</html>
