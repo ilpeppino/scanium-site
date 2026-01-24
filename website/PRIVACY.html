@@ -102,6 +102,28 @@
         padding: 2px 6px;
         border-radius: 6px;
       }
+      .has-animations .reveal {
+        opacity: 0;
+        transform: translateY(14px);
+        transition: opacity 420ms ease, transform 640ms cubic-bezier(0.16, 1, 0.3, 1);
+        will-change: opacity, transform;
+      }
+      .has-animations .reveal.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation-duration: 0.001ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.001ms !important;
+          scroll-behavior: auto !important;
+        }
+        .has-animations .reveal {
+          opacity: 1;
+          transform: none;
+        }
+      }
     </style>
   </head>
   <body>
@@ -361,5 +383,22 @@
         HTTPS.
       </p>
     </footer>
+    <script>
+      (function () {
+        var prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (prefersReducedMotion) {
+          return;
+        }
+        document.body.classList.add("has-animations");
+        var targets = document.querySelectorAll("header, main .card, footer");
+        targets.forEach(function (element, index) {
+          element.classList.add("reveal");
+          element.dataset.delay = String(80 + index * 70);
+          window.setTimeout(function () {
+            element.classList.add("is-visible");
+          }, Number(element.dataset.delay || 0));
+        });
+      })();
+    </script>
   </body>
 </html>
