@@ -1,0 +1,42 @@
+---
+import "../styles/global.css";
+import animationsUrl from "../scripts/animations.ts?url";
+
+const {
+  title = "Scanium - AI Scanning for Resellers",
+  description = "AI-powered object detection and pricing in your pocket.",
+  ogUrl = "https://gtemp1.com/",
+  ogImage = "https://gtemp1.com/assets/logo/scanium-icon.png",
+} = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={ogUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={ogUrl} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={ogImage} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-navy text-text-primary">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <slot />
+    <script type="module" src={animationsUrl}></script>
+  </body>
+</html>
