@@ -1,16 +1,29 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
-import { translations } from "../i18n/translations.js";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import { locales, defaultLocale, translations } from "../../i18n/translations.js";
 
-const t = translations.en;
+export function getStaticPaths() {
+  return locales
+    .filter((locale) => locale.code !== defaultLocale)
+    .map((locale) => ({ params: { lang: locale.code } }));
+}
+
+const { lang } = Astro.params;
+const t = translations[lang] ?? translations[defaultLocale];
+const basePath = `/${lang}`;
 const privacyLabel = t.footer.privacy;
-const privacyHref = "/privacy";
+const privacyHref = `${basePath}/privacy`;
 ---
 
-<BaseLayout title={`Scanium ${t.tos.title}`} description={t.tos.description} lang="en">
-  <Header downloadLabel={t.header.download} languageLabel={t.header.languageLabel} />
+<BaseLayout title={`Scanium ${t.tos.title}`} description={t.tos.description} lang={lang}>
+  <Header
+    downloadLabel={t.header.download}
+    languageLabel={t.header.languageLabel}
+    homeHref={`${basePath}/`}
+    downloadHref={`${basePath}/#download`}
+  />
   <main id="main" class="mx-auto max-w-4xl px-6 pb-24 pt-24">
     <div class="mb-10">
       <p class="text-xs uppercase tracking-[0.3em] text-text-muted">{t.tos.updated}</p>
@@ -52,5 +65,6 @@ const privacyHref = "/privacy";
     privacyLabel={t.footer.privacy}
     tosLabel={t.footer.tos}
     copyrightLabel={t.footer.copyright}
+    basePath={basePath}
   />
 </BaseLayout>

@@ -1,21 +1,32 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
-import { translations } from "../i18n/translations.js";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import { locales, defaultLocale, translations } from "../../i18n/translations.js";
 
-const t = translations.en;
+export function getStaticPaths() {
+  return locales
+    .filter((locale) => locale.code !== defaultLocale)
+    .map((locale) => ({ params: { lang: locale.code } }));
+}
+
+const { lang } = Astro.params;
+const t = translations[lang] ?? translations[defaultLocale];
+const basePath = `/${lang}`;
 ---
 
-<BaseLayout title={`Scanium ${t.privacy.title}`} description={t.privacy.description} lang="en">
-  <Header downloadLabel={t.header.download} languageLabel={t.header.languageLabel} />
+<BaseLayout title={`Scanium ${t.privacy.title}`} description={t.privacy.description} lang={lang}>
+  <Header
+    downloadLabel={t.header.download}
+    languageLabel={t.header.languageLabel}
+    homeHref={`${basePath}/`}
+    downloadHref={`${basePath}/#download`}
+  />
   <main id="main" class="mx-auto max-w-4xl px-6 pb-24 pt-24">
     <div class="mb-10">
       <p class="text-xs uppercase tracking-[0.3em] text-text-muted">{t.privacy.updated}</p>
       <h1 class="section-title mt-4 text-3xl font-semibold text-white sm:text-4xl">{t.privacy.title}</h1>
-      <p class="mt-4 text-text-muted">
-        {t.privacy.description}
-      </p>
+      <p class="mt-4 text-text-muted">{t.privacy.description}</p>
     </div>
 
     <div class="space-y-6 text-sm leading-7 text-text-muted">
@@ -115,5 +126,6 @@ const t = translations.en;
     privacyLabel={t.footer.privacy}
     tosLabel={t.footer.tos}
     copyrightLabel={t.footer.copyright}
+    basePath={basePath}
   />
 </BaseLayout>

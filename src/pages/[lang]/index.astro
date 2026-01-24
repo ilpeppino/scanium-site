@@ -1,0 +1,57 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/Header.astro";
+import Hero from "../../components/Hero.astro";
+import Features from "../../components/Features.astro";
+import HowItWorks from "../../components/HowItWorks.astro";
+import UseCases from "../../components/UseCases.astro";
+import DownloadCTA from "../../components/DownloadCTA.astro";
+import Footer from "../../components/Footer.astro";
+import { locales, defaultLocale, translations } from "../../i18n/translations.js";
+
+export function getStaticPaths() {
+  return locales
+    .filter((locale) => locale.code !== defaultLocale)
+    .map((locale) => ({ params: { lang: locale.code } }));
+}
+
+const { lang } = Astro.params;
+const t = translations[lang] ?? translations[defaultLocale];
+const basePath = `/${lang}`;
+---
+
+<BaseLayout title={t.meta.title} description={t.meta.description} lang={lang}>
+  <Header
+    downloadLabel={t.header.download}
+    languageLabel={t.header.languageLabel}
+    homeHref={`${basePath}/`}
+    downloadHref={`${basePath}/#download`}
+  />
+  <main id="main">
+    <Hero
+      eyebrow={t.hero.eyebrow}
+      titleLines={t.hero.titleLines}
+      description={t.hero.description}
+      ctaPrimary={t.hero.ctaPrimary}
+      ctaGithub={t.hero.ctaGithub}
+      liveScan={t.hero.liveScan}
+      detected={t.hero.detected}
+    />
+    <Features eyebrow={t.features.eyebrow} title={t.features.title} items={t.features.items} />
+    <HowItWorks eyebrow={t.how.eyebrow} title={t.how.title} steps={t.how.steps} />
+    <UseCases eyebrow={t.useCases.eyebrow} title={t.useCases.title} items={t.useCases.items} />
+    <DownloadCTA
+      eyebrow={t.download.eyebrow}
+      title={t.download.title}
+      text={t.download.text}
+      githubLabel={t.download.githubLabel}
+      footer={t.download.footer}
+    />
+  </main>
+  <Footer
+    privacyLabel={t.footer.privacy}
+    tosLabel={t.footer.tos}
+    copyrightLabel={t.footer.copyright}
+    basePath={basePath}
+  />
+</BaseLayout>

@@ -7,16 +7,37 @@ import HowItWorks from "../components/HowItWorks.astro";
 import UseCases from "../components/UseCases.astro";
 import DownloadCTA from "../components/DownloadCTA.astro";
 import Footer from "../components/Footer.astro";
+import { translations } from "../i18n/translations.js";
+
+const t = translations.en;
 ---
 
-<BaseLayout>
-  <Header />
+<BaseLayout title={t.meta.title} description={t.meta.description} lang="en">
+  <Header downloadLabel={t.header.download} languageLabel={t.header.languageLabel} />
   <main id="main">
-    <Hero />
-    <Features />
-    <HowItWorks />
-    <UseCases />
-    <DownloadCTA />
+    <Hero
+      eyebrow={t.hero.eyebrow}
+      titleLines={t.hero.titleLines}
+      description={t.hero.description}
+      ctaPrimary={t.hero.ctaPrimary}
+      ctaGithub={t.hero.ctaGithub}
+      liveScan={t.hero.liveScan}
+      detected={t.hero.detected}
+    />
+    <Features eyebrow={t.features.eyebrow} title={t.features.title} items={t.features.items} />
+    <HowItWorks eyebrow={t.how.eyebrow} title={t.how.title} steps={t.how.steps} />
+    <UseCases eyebrow={t.useCases.eyebrow} title={t.useCases.title} items={t.useCases.items} />
+    <DownloadCTA
+      eyebrow={t.download.eyebrow}
+      title={t.download.title}
+      text={t.download.text}
+      githubLabel={t.download.githubLabel}
+      footer={t.download.footer}
+    />
   </main>
-  <Footer />
+  <Footer
+    privacyLabel={t.footer.privacy}
+    tosLabel={t.footer.tos}
+    copyrightLabel={t.footer.copyright}
+  />
 </BaseLayout>

@@ -1,8 +1,15 @@
+---
+const {
+  eyebrow = "Workflow",
+  title = "From Camera to Cash in Seconds",
+  steps = [],
+} = Astro.props;
+---
 <section class="how-it-works relative mx-auto max-w-6xl px-6 py-24" aria-labelledby="how-title">
   <div class="mb-12 flex flex-col gap-4">
-    <p class="text-sm uppercase tracking-[0.4em] text-scanium-cyan">Workflow</p>
+    <p class="text-sm uppercase tracking-[0.4em] text-scanium-cyan">{eyebrow}</p>
     <h2 id="how-title" class="section-title text-3xl font-semibold text-white sm:text-4xl">
-      From Camera to Cash in Seconds
+      {title}
     </h2>
   </div>
 
@@ -18,26 +25,15 @@
       <path d="M20 90 H880" />
     </svg>
     <div class="grid gap-10 md:grid-cols-4">
-      <div class="step rounded-2xl border border-white/10 bg-navy-light/70 p-6 text-center">
-        <div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-scanium-cyan/20 text-xs font-semibold text-scanium-cyan">PT</div>
-        <h3 class="text-lg font-semibold text-white">Point</h3>
-        <p class="mt-2 text-sm text-text-muted">Open Scanium and point at any item.</p>
-      </div>
-      <div class="step rounded-2xl border border-white/10 bg-navy-light/70 p-6 text-center">
-        <div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-scanium-blue/20 text-xs font-semibold text-scanium-blue">ID</div>
-        <h3 class="text-lg font-semibold text-white">Detect</h3>
-        <p class="mt-2 text-sm text-text-muted">AI identifies the object in real-time.</p>
-      </div>
-      <div class="step rounded-2xl border border-white/10 bg-navy-light/70 p-6 text-center">
-        <div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-scanium-yellow/20 text-xs font-semibold text-scanium-yellow">PR</div>
-        <h3 class="text-lg font-semibold text-white">Price</h3>
-        <p class="mt-2 text-sm text-text-muted">Get an instant market value estimate.</p>
-      </div>
-      <div class="step rounded-2xl border border-white/10 bg-navy-light/70 p-6 text-center">
-        <div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-scanium-purple/20 text-xs font-semibold text-scanium-purple">EX</div>
-        <h3 class="text-lg font-semibold text-white">Export</h3>
-        <p class="mt-2 text-sm text-text-muted">Export to CSV or list on marketplaces.</p>
-      </div>
+      {steps.map((step) => (
+        <div class="step rounded-2xl border border-white/10 bg-navy-light/70 p-6 text-center">
+          <div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-scanium-cyan/20 text-xs font-semibold text-scanium-cyan">
+            {step.code}
+          </div>
+          <h3 class="text-lg font-semibold text-white">{step.title}</h3>
+          <p class="mt-2 text-sm text-text-muted">{step.text}</p>
+        </div>
+      ))}
     </div>
   </div>
 </section>

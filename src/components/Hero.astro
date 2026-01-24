@@ -1,3 +1,19 @@
+---
+const {
+  eyebrow = "AI-powered resale toolkit",
+  titleLines = ["Scan it.", "Select it.", "Sell it."],
+  description = "AI-powered object detection and pricing in your pocket. Turn piles of inventory into clean, ready-to-list data in minutes.",
+  ctaPrimary = "Get the app",
+  ctaGithub = "GitHub",
+  liveScan = "Live Scan",
+  detected = "Detected: Mid-century chair",
+} = Astro.props;
+
+const splitLine = (line) => ({
+  initial: line.slice(0, 1),
+  rest: line.slice(1),
+});
+---
 <section class="hero relative overflow-hidden pt-28" aria-labelledby="hero-title">
   <div class="hero-bg-layer absolute inset-0 hero-grid opacity-40"></div>
   <div class="hero-mid-layer pointer-events-none absolute inset-0">
@@ -8,18 +24,18 @@
 
   <div class="relative mx-auto flex min-h-[90vh] max-w-6xl flex-col items-center gap-12 px-6 pb-24 lg:flex-row lg:items-start">
     <div class="max-w-xl">
-      <p class="mb-4 text-sm uppercase tracking-[0.4em] text-scanium-cyan">AI-powered resale toolkit</p>
+      <p class="mb-4 text-sm uppercase tracking-[0.4em] text-scanium-cyan">{eyebrow}</p>
       <h1 id="hero-title" class="section-title text-4xl font-semibold leading-tight text-white sm:text-5xl lg:text-6xl">
-        <span class="text-scanium-yellow">S</span>can it.
-        <span class="text-scanium-yellow">S</span>elect it.
-        <span class="text-scanium-yellow">S</span>ell it.
+        <span class="text-scanium-yellow">{splitLine(titleLines[0]).initial}</span>{splitLine(titleLines[0]).rest}
+        <span class="text-scanium-yellow">{splitLine(titleLines[1]).initial}</span>{splitLine(titleLines[1]).rest}
+        <span class="text-scanium-yellow">{splitLine(titleLines[2]).initial}</span>{splitLine(titleLines[2]).rest}
       </h1>
       <p class="mt-6 text-lg text-text-muted">
-        AI-powered object detection and pricing in your pocket. Turn piles of inventory into clean, ready-to-list data in minutes.
+        {description}
       </p>
       <div class="mt-10 flex flex-wrap items-center gap-4">
         <a href="#download" class="glow-border inline-flex items-center rounded-full bg-scanium-blue px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white shadow-lg shadow-scanium-blue/40 transition hover:-translate-y-0.5">
-          Get the app
+          {ctaPrimary}
         </a>
         <a href="https://play.google.com/store/apps/details?id=com.scanium.app" aria-label="Get Scanium on Google Play">
           <img src="/assets/badges/google-play-badge.svg" alt="Get it on Google Play" class="h-12 w-auto" />
@@ -30,7 +46,7 @@
           aria-label="View Scanium on GitHub"
         >
           <img src="/assets/badges/github-mark-white.svg" alt="" class="h-4 w-4" />
-          GitHub
+          {ctaGithub}
         </a>
       </div>
     </div>
@@ -43,7 +59,7 @@
         <div class="rounded-[24px] border border-white/10 bg-gradient-to-b from-white/5 to-transparent p-6">
           <div class="mb-6 flex items-center justify-between text-xs uppercase tracking-[0.3em] text-text-muted">
             <span>Scanium</span>
-            <span>Live Scan</span>
+            <span>{liveScan}</span>
           </div>
           <div class="relative h-72 overflow-hidden rounded-2xl bg-gradient-to-br from-scanium-blue/10 via-transparent to-scanium-cyan/20">
             <div class="absolute inset-0 border border-scanium-cyan/40"></div>
@@ -52,7 +68,7 @@
             <div class="absolute bottom-6 left-6 rounded-full bg-white/10 px-3 py-1 text-xs text-white">$42 - $58</div>
           </div>
           <div class="mt-6 flex items-center justify-between rounded-full bg-white/5 px-4 py-3 text-xs text-text-muted">
-            <span>Detected: Mid-century chair</span>
+            <span>{detected}</span>
             <span class="text-scanium-cyan">98%</span>
           </div>
         </div>

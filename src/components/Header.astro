@@ -1,10 +1,18 @@
+---
+const {
+  downloadLabel = "Download",
+  languageLabel = "Language",
+  homeHref = "/",
+  downloadHref = "/#download",
+} = Astro.props;
+---
 <header class="fixed inset-x-0 top-0 z-40">
   <div
     id="site-header"
     class="header-blur transition duration-300"
   >
     <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-      <a href="/" class="flex items-center gap-3 text-lg font-semibold">
+      <a href={homeHref} class="flex items-center gap-3 text-lg font-semibold">
         <img
           src="/assets/logo/scanium-icon.png"
           alt="Scanium logo"
@@ -13,12 +21,43 @@
         />
         <span>Scanium</span>
       </a>
-      <a
-        href="/#download"
-        class="glow-border rounded-full bg-scanium-blue px-5 py-2 text-sm font-semibold uppercase tracking-wide text-white shadow-lg shadow-scanium-blue/30 transition hover:-translate-y-0.5 hover:shadow-scanium-blue/60"
-      >
-        Download
-      </a>
+      <div class="flex items-center gap-4">
+        <label class="sr-only" for="language-select">{languageLabel}</label>
+        <select
+          id="language-select"
+          class="rounded-full border border-white/10 bg-navy-light/70 px-3 py-2 text-xs uppercase tracking-[0.2em] text-text-muted transition hover:border-white/30"
+        >
+          <option value="en">🇺🇸 EN</option>
+          <option value="it">🇮🇹 IT</option>
+          <option value="de">🇩🇪 DE</option>
+          <option value="fr">🇫🇷 FR</option>
+          <option value="es">🇪🇸 ES</option>
+          <option value="pt-br">🇧🇷 PT-BR</option>
+        </select>
+        <a
+          href={downloadHref}
+          class="glow-border rounded-full bg-scanium-blue px-5 py-2 text-sm font-semibold uppercase tracking-wide text-white shadow-lg shadow-scanium-blue/30 transition hover:-translate-y-0.5 hover:shadow-scanium-blue/60"
+        >
+          {downloadLabel}
+        </a>
+      </div>
     </div>
   </div>
 </header>
+
+<script is:inline>
+  const languageSelect = document.getElementById("language-select");
+  if (languageSelect) {
+    const locales = ["it", "de", "fr", "es", "pt-br"];
+    const path = window.location.pathname;
+    const parts = path.split("/").filter(Boolean);
+    const currentLocale = locales.includes(parts[0]) ? parts[0] : "en";
+    const suffix = currentLocale === "en" ? path : `/${parts.slice(1).join("/")}`;
+    languageSelect.value = currentLocale;
+    languageSelect.addEventListener("change", (event) => {
+      const value = event.target.value;
+      const targetPath = value === "en" ? suffix || "/" : `/${value}${suffix || "/"}`;
+      window.location.href = targetPath;
+    });
+  }
+</script>
