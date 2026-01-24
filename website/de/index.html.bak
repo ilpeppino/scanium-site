@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Scanium — Scannen. Auswählen. Verkaufen.</title>
+    <meta
+      name="description"
+      content="Scanium ist eine kamerabasierte Android-App mit lokaler ML-Objekterkennung, Preisschätzung und exportorientierter Freigabe."
+    />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://gtemp1.com/website/de/" />
+    <meta property="og:title" content="Scanium — Scannen. Auswählen. Verkaufen." />
+    <meta property="og:description" content="Kamerabasierte Android-App mit lokaler Objekterkennung, Preisschätzung und exportorientierter Freigabe." />
+    <meta property="og:image" content="https://gtemp1.com/assets/social/og-image.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://gtemp1.com/website/de/" />
+    <meta property="twitter:title" content="Scanium — Scannen. Auswählen. Verkaufen." />
+    <meta property="twitter:description" content="Kamerabasierte Android-App mit lokaler Objekterkennung, Preisschätzung und exportorientierter Freigabe." />
+    <meta property="twitter:image" content="https://gtemp1.com/assets/social/og-image.png" />
+
+    <link rel="icon" type="image/svg+xml" href="../assets/scanium-icon-mark.svg" />
+    <link rel="stylesheet" href="../styles.css" />
+
+    <!-- Language alternatives for SEO -->
+    <link rel="alternate" hreflang="en" href="https://gtemp1.com/website/" />
+    <link rel="alternate" hreflang="de" href="https://gtemp1.com/website/de/" />
+    <link rel="alternate" hreflang="es" href="https://gtemp1.com/website/es/" />
+    <link rel="alternate" hreflang="fr" href="https://gtemp1.com/website/fr/" />
+    <link rel="alternate" hreflang="it" href="https://gtemp1.com/website/it/" />
+    <link rel="alternate" hreflang="pt-BR" href="https://gtemp1.com/website/pt-BR/" />
+    <link rel="alternate" hreflang="x-default" href="https://gtemp1.com/website/" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-content">
+        <a href="index.html" class="brand-lockup" aria-label="Scanium Startseite">
+          <img
+            class="brand__logo"
+            src="../assets/logo/scanium-logo-primary.svg"
+            alt="Scanium Logo"
+            width="240"
+            height="240"
+            decoding="async"
+          />
+          <span class="brand-name">Scanium</span>
+        </a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="container hero__content">
+          <h1 class="hero__title" id="hero-title">
+            <span class="s-initial">S</span>cannen.<br />
+            <span class="s-initial">A</span>uswählen.<br />
+            <span class="s-initial">V</span>erkaufen.
+          </h1>
+          <p class="hero__description">
+            Scanium hält die Kameraarbeit ruhig und lokal: Scannen, Verstehen und Kuratieren von Angeboten mit Geräteintelligenz, die Ihnen nicht im Weg steht.
+          </p>
+          <div class="hero__cta">
+            <a
+              class="play-badge"
+              href="https://play.google.com/store/apps/details?id=com.scanium.app"
+              data-play-store-link
+            >
+              <img
+                src="../assets/badges/google-play-badge.svg"
+                alt="Jetzt bei Google Play"
+                width="200"
+                height="48"
+                decoding="async"
+              />
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-links">
+          <a href="PRIVACY.html">Datenschutzerklärung</a>
+          <a href="TOS.html">Nutzungsbedingungen</a>
+        </div>
+        <p>© 2026 Scanium. Alle Rechte vorbehalten.</p>
+      </div>
+    </footer>
+
+    <script src="../app.js"></script>
+    <script src="../i18n/language-switcher.js"></script>
+  </body>
+</html>

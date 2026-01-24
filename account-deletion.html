@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scanium - Account Deletion</title>
+
+    <!-- Language alternatives for SEO -->
+    <link rel="alternate" hreflang="en" href="https://gtemp1.com/account-deletion.html" />
+    <link rel="alternate" hreflang="de" href="https://gtemp1.com/account-deletion.html?lang=de" />
+    <link rel="alternate" hreflang="es" href="https://gtemp1.com/account-deletion.html?lang=es" />
+    <link rel="alternate" hreflang="fr" href="https://gtemp1.com/account-deletion.html?lang=fr" />
+    <link rel="alternate" hreflang="it" href="https://gtemp1.com/account-deletion.html?lang=it" />
+    <link rel="alternate" hreflang="pt-BR" href="https://gtemp1.com/account-deletion.html?lang=pt-BR" />
+    <link rel="alternate" hreflang="x-default" href="https://gtemp1.com/account-deletion.html" />
+
     <style>
         * {
             margin: 0;
@@ -219,7 +229,7 @@
                     type="email"
                     id="email"
                     name="email"
-                    placeholder="email@example.com"
+                    placeholder="scanium@gtemp1.com"
                     required
                     autocomplete="email"
                 >
@@ -245,6 +255,120 @@
     </div>
 
     <script>
+        // ============================================================================
+        // Internationalization (i18n) Support
+        // ============================================================================
+
+        // Detect language from URL parameter, localStorage, or browser
+        const urlParams = new URLSearchParams(window.location.search);
+        let userLang = urlParams.get('lang')
+            || localStorage.getItem('scanium-lang')
+            || navigator.language.split('-')[0]
+            || 'en';
+
+        // Handle pt-BR special case
+        if (userLang === 'pt' || navigator.language === 'pt-BR') {
+            userLang = 'pt-BR';
+        }
+
+        // Supported languages
+        const supportedLangs = ['en', 'de', 'es', 'fr', 'it', 'pt-BR'];
+        if (!supportedLangs.includes(userLang)) {
+            userLang = 'en'; // Fallback to English
+        }
+
+        // Store language preference
+        localStorage.setItem('scanium-lang', userLang);
+
+        // Global translations object
+        let translations = {};
+
+        // Load translations
+        async function loadTranslations(lang) {
+            try {
+                const response = await fetch(`/website/i18n/translations/${lang}.json`);
+                if (!response.ok) throw new Error('Translation not found');
+                return await response.json();
+            } catch (error) {
+                console.warn(`Failed to load ${lang} translations, falling back to English`);
+                const response = await fetch('/website/i18n/translations/en.json');
+                return await response.json();
+            }
+        }
+
+        // Apply translations to the page
+        function applyTranslations(t) {
+            translations = t;
+
+            // Update page title
+            document.title = t.page_title;
+
+            // Update heading
+            document.querySelector('h1').textContent = t.heading;
+
+            // Update intro paragraph
+            document.querySelector('.container > p').textContent = t.intro;
+
+            // Update warning section
+            document.querySelector('.warning strong').textContent = t.warning_title;
+            document.querySelector('.warning').childNodes[2].textContent = t.warning_text;
+
+            // Update "What will be deleted" section
+            document.querySelector('h2').textContent = t.what_deleted_heading;
+            const listItems = document.querySelectorAll('ul li');
+            listItems[0].textContent = t.deleted_items.profile;
+            listItems[1].textContent = t.deleted_items.auth;
+            listItems[2].textContent = t.deleted_items.ebay;
+            listItems[3].textContent = t.deleted_items.listings;
+            listItems[4].textContent = t.deleted_items.scan_history;
+
+            // Update retention info
+            document.querySelector('.retention-info strong').textContent = t.retention_heading;
+            document.querySelector('.retention-info').childNodes[1].textContent = ' ' + t.retention_text;
+
+            // Update info box
+            document.querySelector('.info-box strong').textContent = t.alternative_heading;
+            document.querySelector('.info-box').childNodes[1].textContent = ' ' + t.alternative_text;
+
+            // Update form labels and placeholders
+            document.querySelector('label[for="email"]').textContent = t.email_label;
+            document.getElementById('email').placeholder = t.email_placeholder;
+            document.getElementById('submitBtn').textContent = t.submit_button;
+
+            // Update back link and adjust URL based on language
+            const backLink = document.querySelector('.back-link');
+            backLink.textContent = t.back_link;
+            if (userLang === 'en') {
+                backLink.href = 'website/PRIVACY.html';
+            } else {
+                backLink.href = `website/${userLang}/PRIVACY.html`;
+            }
+
+            // Update success message template
+            const successMsg = document.getElementById('successMessage');
+            successMsg.innerHTML = `
+                <strong>${t.success_heading}</strong>
+                <p>${t.success_text}</p>
+                <p><strong>${t.success_important.split(':')[0]}:</strong> ${t.success_important.split(': ')[1]}</p>
+            `;
+
+            // Update error message template
+            const errorHeading = document.querySelector('#errorMessage strong');
+            errorHeading.textContent = t.error_heading;
+
+            // Update HTML lang attribute
+            document.documentElement.lang = userLang;
+        }
+
+        // Initialize translations
+        loadTranslations(userLang).then(applyTranslations).catch(error => {
+            console.error('Failed to load translations:', error);
+        });
+
+        // ============================================================================
+        // Form Functionality
+        // ============================================================================
+
         const form = document.getElementById('deletionForm');
         const submitBtn = document.getElementById('submitBtn');
         const successMessage = document.getElementById('successMessage');
@@ -252,7 +376,6 @@
         const errorText = document.getElementById('errorText');
 
         // Get backend URL from query parameter or use default
-        const urlParams = new URLSearchParams(window.location.search);
         const backendUrl = urlParams.get('backend') || 'https://scanium.gtemp1.com';
 
         form.addEventListener('submit', async (e) => {
@@ -266,7 +389,7 @@
 
             // Disable submit button
             submitBtn.disabled = true;
-            submitBtn.textContent = 'Sending verification email...';
+            submitBtn.textContent = translations.submit_button_loading || 'Sending verification email...';
 
             try {
                 const response = await fetch(`${backendUrl}/v1/account/delete-by-email`, {
@@ -286,11 +409,11 @@
                     throw new Error(data.error?.message || 'Failed to request account deletion');
                 }
             } catch (error) {
-                errorText.textContent = error.message || 'An unexpected error occurred. Please try again later.';
+                errorText.textContent = error.message || translations.error_unexpected || 'An unexpected error occurred. Please try again later.';
                 errorMessage.style.display = 'block';
             } finally {
                 submitBtn.disabled = false;
-                submitBtn.textContent = 'Request Account Deletion';
+                submitBtn.textContent = translations.submit_button || 'Request Account Deletion';
             }
         });
 
@@ -304,7 +427,7 @@
             successMessage.style.display = 'none';
             errorMessage.style.display = 'none';
             submitBtn.disabled = true;
-            submitBtn.textContent = 'Confirming deletion...';
+            submitBtn.textContent = translations.submit_button_confirming || 'Confirming deletion...';
 
             try {
                 const response = await fetch(`${backendUrl}/v1/account/delete/confirm`, {
@@ -318,8 +441,8 @@
                 const data = await response.json();
 
                 if (response.ok) {
-                    document.querySelector('h1').textContent = 'Account Deleted';
-                    document.querySelector('.container p').textContent = 'Your account has been successfully deleted. All your data has been permanently removed from our systems.';
+                    document.querySelector('h1').textContent = translations.confirmed_heading || 'Account Deleted';
+                    document.querySelector('.container p').textContent = translations.confirmed_text || 'Your account has been successfully deleted. All your data has been permanently removed from our systems.';
                     form.style.display = 'none';
                     document.querySelector('.warning').style.display = 'none';
                     document.querySelector('h2').style.display = 'none';
@@ -327,19 +450,65 @@
                     document.querySelector('.retention-info').style.display = 'none';
                     document.querySelector('.info-box').style.display = 'none';
 
-                    successMessage.innerHTML = '<strong>Success!</strong><p>Your Scanium account has been permanently deleted. Thank you for using Scanium.</p>';
+                    successMessage.innerHTML = `<strong>${translations.success_heading || 'Success!'}</strong><p>${translations.confirmed_success || 'Your Scanium account has been permanently deleted. Thank you for using Scanium.'}</p>`;
                     successMessage.style.display = 'block';
                 } else {
-                    throw new Error(data.error?.message || 'Failed to confirm account deletion');
+                    throw new Error(data.error?.message || translations.error_unexpected || 'Failed to confirm account deletion');
                 }
             } catch (error) {
-                errorText.textContent = error.message || 'Invalid or expired verification link.';
+                errorText.textContent = error.message || translations.error_invalid_link || 'Invalid or expired verification link.';
                 errorMessage.style.display = 'block';
                 form.style.display = 'block';
                 submitBtn.disabled = false;
-                submitBtn.textContent = 'Request Account Deletion';
+                submitBtn.textContent = translations.submit_button || 'Request Account Deletion';
             }
         }
+
+        // ============================================================================
+        // Simple Language Switcher for Account Deletion Page
+        // ============================================================================
+
+        // Create a simple language selector at the top
+        function createLanguageSelector() {
+            const languages = {
+                'en': 'English',
+                'de': 'Deutsch',
+                'es': 'Español',
+                'fr': 'Français',
+                'it': 'Italiano',
+                'pt-BR': 'Português (BR)'
+            };
+
+            const container = document.querySelector('.container');
+            const selector = document.createElement('div');
+            selector.style.cssText = 'text-align: right; margin-bottom: 20px; font-size: 14px;';
+
+            const select = document.createElement('select');
+            select.style.cssText = 'padding: 5px 10px; border-radius: 4px; border: 1px solid #ddd; background: white; cursor: pointer;';
+
+            Object.entries(languages).forEach(([code, name]) => {
+                const option = document.createElement('option');
+                option.value = code;
+                option.textContent = name;
+                if (code === userLang) {
+                    option.selected = true;
+                }
+                select.appendChild(option);
+            });
+
+            select.addEventListener('change', (e) => {
+                const newLang = e.target.value;
+                localStorage.setItem('scanium-lang', newLang);
+                localStorage.setItem('scanium-lang-manual', 'true');
+                window.location.href = `?lang=${newLang}`;
+            });
+
+            selector.appendChild(select);
+            container.insertBefore(selector, container.firstChild);
+        }
+
+        // Create language selector when page loads
+        window.addEventListener('DOMContentLoaded', createLanguageSelector);
     </script>
 </body>
 </html>

@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Homepage - English -->
+  <url>
+    <loc>https://gtemp1.com/website/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gtemp1.com/website/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://gtemp1.com/website/de/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://gtemp1.com/website/es/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://gtemp1.com/website/fr/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://gtemp1.com/website/it/" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://gtemp1.com/website/pt-BR/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gtemp1.com/website/" />
+    <priority>1.0</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- Homepage - German -->
+  <url>
+    <loc>https://gtemp1.com/website/de/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gtemp1.com/website/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://gtemp1.com/website/de/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://gtemp1.com/website/es/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://gtemp1.com/website/fr/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://gtemp1.com/website/it/" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://gtemp1.com/website/pt-BR/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gtemp1.com/website/" />
+    <priority>1.0</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- Homepage - Spanish -->
+  <url>
+    <loc>https://gtemp1.com/website/es/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gtemp1.com/website/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://gtemp1.com/website/de/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://gtemp1.com/website/es/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://gtemp1.com/website/fr/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://gtemp1.com/website/it/" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://gtemp1.com/website/pt-BR/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gtemp1.com/website/" />
+    <priority>1.0</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- Homepage - French -->
+  <url>
+    <loc>https://gtemp1.com/website/fr/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gtemp1.com/website/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://gtemp1.com/website/de/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://gtemp1.com/website/es/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://gtemp1.com/website/fr/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://gtemp1.com/website/it/" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://gtemp1.com/website/pt-BR/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gtemp1.com/website/" />
+    <priority>1.0</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- Homepage - Italian -->
+  <url>
+    <loc>https://gtemp1.com/website/it/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gtemp1.com/website/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://gtemp1.com/website/de/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://gtemp1.com/website/es/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://gtemp1.com/website/fr/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://gtemp1.com/website/it/" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://gtemp1.com/website/pt-BR/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gtemp1.com/website/" />
+    <priority>1.0</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- Homepage - Brazilian Portuguese -->
+  <url>
+    <loc>https://gtemp1.com/website/pt-BR/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gtemp1.com/website/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://gtemp1.com/website/de/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://gtemp1.com/website/es/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://gtemp1.com/website/fr/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://gtemp1.com/website/it/" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://gtemp1.com/website/pt-BR/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gtemp1.com/website/" />
+    <priority>1.0</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- Privacy Policy - English -->
+  <url>
+    <loc>https://gtemp1.com/website/PRIVACY.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gtemp1.com/website/PRIVACY.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://gtemp1.com/website/de/PRIVACY.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://gtemp1.com/website/es/PRIVACY.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://gtemp1.com/website/fr/PRIVACY.html" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://gtemp1.com/website/it/PRIVACY.html" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://gtemp1.com/website/pt-BR/PRIVACY.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gtemp1.com/website/PRIVACY.html" />
+    <priority>0.8</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <!-- Privacy Policy - German -->
+  <url>
+    <loc>https://gtemp1.com/website/de/PRIVACY.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gtemp1.com/website/PRIVACY.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://gtemp1.com/website/de/PRIVACY.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://gtemp1.com/website/es/PRIVACY.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://gtemp1.com/website/fr/PRIVACY.html" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://gtemp1.com/website/it/PRIVACY.html" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://gtemp1.com/website/pt-BR/PRIVACY.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gtemp1.com/website/PRIVACY.html" />
+    <priority>0.8</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <!-- Privacy Policy - Spanish -->
+  <url>
+    <loc>https://gtemp1.com/website/es/PRIVACY.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gtemp1.com/website/PRIVACY.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://gtemp1.com/website/de/PRIVACY.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://gtemp1.com/website/es/PRIVACY.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://gtemp1.com/website/fr/PRIVACY.html" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://gtemp1.com/website/it/PRIVACY.html" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://gtemp1.com/website/pt-BR/PRIVACY.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gtemp1.com/website/PRIVACY.html" />
+    <priority>0.8</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <!-- Privacy Policy - French -->
+  <url>
+    <loc>https://gtemp1.com/website/fr/PRIVACY.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gtemp1.com/website/PRIVACY.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://gtemp1.com/website/de/PRIVACY.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://gtemp1.com/website/es/PRIVACY.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://gtemp1.com/website/fr/PRIVACY.html" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://gtemp1.com/website/it/PRIVACY.html" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://gtemp1.com/website/pt-BR/PRIVACY.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gtemp1.com/website/PRIVACY.html" />
+    <priority>0.8</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <!-- Privacy Policy - Italian -->
+  <url>
+    <loc>https://gtemp1.com/website/it/PRIVACY.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gtemp1.com/website/PRIVACY.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://gtemp1.com/website/de/PRIVACY.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://gtemp1.com/website/es/PRIVACY.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://gtemp1.com/website/fr/PRIVACY.html" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://gtemp1.com/website/it/PRIVACY.html" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://gtemp1.com/website/pt-BR/PRIVACY.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gtemp1.com/website/PRIVACY.html" />
+    <priority>0.8</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <!-- Privacy Policy - Brazilian Portuguese -->
+  <url>
+    <loc>https://gtemp1.com/website/pt-BR/PRIVACY.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gtemp1.com/website/PRIVACY.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://gtemp1.com/website/de/PRIVACY.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://gtemp1.com/website/es/PRIVACY.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://gtemp1.com/website/fr/PRIVACY.html" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://gtemp1.com/website/it/PRIVACY.html" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://gtemp1.com/website/pt-BR/PRIVACY.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gtemp1.com/website/PRIVACY.html" />
+    <priority>0.8</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <!-- Terms of Service - English -->
+  <url>
+    <loc>https://gtemp1.com/website/TOS.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gtemp1.com/website/TOS.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://gtemp1.com/website/de/TOS.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://gtemp1.com/website/es/TOS.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://gtemp1.com/website/fr/TOS.html" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://gtemp1.com/website/it/TOS.html" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://gtemp1.com/website/pt-BR/TOS.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gtemp1.com/website/TOS.html" />
+    <priority>0.8</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <!-- Terms of Service - German -->
+  <url>
+    <loc>https://gtemp1.com/website/de/TOS.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gtemp1.com/website/TOS.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://gtemp1.com/website/de/TOS.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://gtemp1.com/website/es/TOS.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://gtemp1.com/website/fr/TOS.html" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://gtemp1.com/website/it/TOS.html" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://gtemp1.com/website/pt-BR/TOS.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gtemp1.com/website/TOS.html" />
+    <priority>0.8</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <!-- Terms of Service - Spanish -->
+  <url>
+    <loc>https://gtemp1.com/website/es/TOS.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gtemp1.com/website/TOS.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://gtemp1.com/website/de/TOS.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://gtemp1.com/website/es/TOS.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://gtemp1.com/website/fr/TOS.html" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://gtemp1.com/website/it/TOS.html" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://gtemp1.com/website/pt-BR/TOS.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gtemp1.com/website/TOS.html" />
+    <priority>0.8</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <!-- Terms of Service - French -->
+  <url>
+    <loc>https://gtemp1.com/website/fr/TOS.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gtemp1.com/website/TOS.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://gtemp1.com/website/de/TOS.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://gtemp1.com/website/es/TOS.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://gtemp1.com/website/fr/TOS.html" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://gtemp1.com/website/it/TOS.html" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://gtemp1.com/website/pt-BR/TOS.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gtemp1.com/website/TOS.html" />
+    <priority>0.8</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <!-- Terms of Service - Italian -->
+  <url>
+    <loc>https://gtemp1.com/website/it/TOS.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gtemp1.com/website/TOS.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://gtemp1.com/website/de/TOS.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://gtemp1.com/website/es/TOS.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://gtemp1.com/website/fr/TOS.html" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://gtemp1.com/website/it/TOS.html" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://gtemp1.com/website/pt-BR/TOS.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gtemp1.com/website/TOS.html" />
+    <priority>0.8</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <!-- Terms of Service - Brazilian Portuguese -->
+  <url>
+    <loc>https://gtemp1.com/website/pt-BR/TOS.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gtemp1.com/website/TOS.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://gtemp1.com/website/de/TOS.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://gtemp1.com/website/es/TOS.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://gtemp1.com/website/fr/TOS.html" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://gtemp1.com/website/it/TOS.html" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://gtemp1.com/website/pt-BR/TOS.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gtemp1.com/website/TOS.html" />
+    <priority>0.8</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <!-- Account Deletion -->
+  <url>
+    <loc>https://gtemp1.com/account-deletion.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gtemp1.com/account-deletion.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://gtemp1.com/account-deletion.html?lang=de" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://gtemp1.com/account-deletion.html?lang=es" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://gtemp1.com/account-deletion.html?lang=fr" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://gtemp1.com/account-deletion.html?lang=it" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://gtemp1.com/account-deletion.html?lang=pt-BR" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gtemp1.com/account-deletion.html" />
+    <priority>0.5</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+</urlset>

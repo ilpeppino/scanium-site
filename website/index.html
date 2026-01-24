@@ -25,6 +25,15 @@
 
     <link rel="icon" type="image/svg+xml" href="assets/scanium-icon-mark.svg" />
     <link rel="stylesheet" href="styles.css" />
+
+    <!-- Language alternatives for SEO -->
+    <link rel="alternate" hreflang="en" href="https://gtemp1.com/website/" />
+    <link rel="alternate" hreflang="de" href="https://gtemp1.com/website/de/" />
+    <link rel="alternate" hreflang="es" href="https://gtemp1.com/website/es/" />
+    <link rel="alternate" hreflang="fr" href="https://gtemp1.com/website/fr/" />
+    <link rel="alternate" hreflang="it" href="https://gtemp1.com/website/it/" />
+    <link rel="alternate" hreflang="pt-BR" href="https://gtemp1.com/website/pt-BR/" />
+    <link rel="alternate" hreflang="x-default" href="https://gtemp1.com/website/" />
   </head>
   <body>
     <header class="site-header">
@@ -84,5 +93,119 @@
     </footer>
 
     <script src="app.js"></script>
+    <script>
+      // Language Switcher - Embedded inline for compatibility
+      const SUPPORTED_LANGUAGES = {
+        'en': { name: 'English', nativeName: 'English' },
+        'de': { name: 'German', nativeName: 'Deutsch' },
+        'es': { name: 'Spanish', nativeName: 'Español' },
+        'fr': { name: 'French', nativeName: 'Français' },
+        'it': { name: 'Italian', nativeName: 'Italiano' },
+        'pt-BR': { name: 'Portuguese (Brazil)', nativeName: 'Português (Brasil)' }
+      };
+
+      class LanguageSwitcher {
+        constructor() {
+          this.currentLang = this.detectCurrentLanguage();
+          this.init();
+        }
+
+        detectCurrentLanguage() {
+          const path = window.location.pathname;
+          const match = path.match(/\/(de|es|fr|it|pt-BR)\//);
+          if (match) return match[1];
+          if (path.includes('/de')) return 'de';
+          if (path.includes('/es')) return 'es';
+          if (path.includes('/fr')) return 'fr';
+          if (path.includes('/it')) return 'it';
+          if (path.includes('/pt-BR')) return 'pt-BR';
+          return 'en';
+        }
+
+        init() {
+          console.log('[Language Switcher] Initializing, current lang:', this.currentLang);
+          this.createSwitcherHTML();
+          this.attachEventListeners();
+        }
+
+        createSwitcherHTML() {
+          const switcher = document.createElement('div');
+          switcher.className = 'language-switcher';
+          switcher.innerHTML = `
+            <button class="language-switcher__button" aria-label="Select language" aria-expanded="false">
+              <span class="language-switcher__current">${SUPPORTED_LANGUAGES[this.currentLang].nativeName}</span>
+              <svg class="language-switcher__icon" width="12" height="8" viewBox="0 0 12 8" fill="none">
+                <path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <div class="language-switcher__dropdown" role="menu">
+              ${Object.entries(SUPPORTED_LANGUAGES).map(([code, lang]) => `
+                <a href="#" class="language-switcher__option ${code === this.currentLang ? 'active' : ''}"
+                   data-lang="${code}" role="menuitem">${lang.nativeName}</a>
+              `).join('')}
+            </div>
+          `;
+
+          const header = document.querySelector('.site-header .container');
+          if (header) {
+            header.appendChild(switcher);
+          } else {
+            document.body.insertBefore(switcher, document.body.firstChild);
+          }
+        }
+
+        attachEventListeners() {
+          const button = document.querySelector('.language-switcher__button');
+          const dropdown = document.querySelector('.language-switcher__dropdown');
+          const options = document.querySelectorAll('.language-switcher__option');
+
+          if (!button || !dropdown) return;
+
+          button.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isExpanded = button.getAttribute('aria-expanded') === 'true';
+            button.setAttribute('aria-expanded', !isExpanded);
+            dropdown.classList.toggle('show');
+          });
+
+          document.addEventListener('click', () => {
+            button.setAttribute('aria-expanded', 'false');
+            dropdown.classList.remove('show');
+          });
+
+          dropdown.addEventListener('click', (e) => e.stopPropagation());
+
+          options.forEach(option => {
+            option.addEventListener('click', (e) => {
+              e.preventDefault();
+              const selectedLang = option.getAttribute('data-lang');
+              if (selectedLang !== this.currentLang) {
+                this.switchLanguage(selectedLang);
+              }
+            });
+          });
+        }
+
+        switchLanguage(newLang) {
+          localStorage.setItem('scanium-lang-manual', 'true');
+          localStorage.setItem('scanium-lang', newLang);
+
+          let path = window.location.pathname;
+          path = path.replace(/^\/(de|es|fr|it|pt-BR)\//, '/');
+
+          let newPath = newLang === 'en' ? path : `/${newLang}${path}`;
+          if (newPath.endsWith('/')) newPath += 'index.html';
+
+          window.location.href = newPath;
+        }
+      }
+
+      // Initialize when DOM is ready
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => new LanguageSwitcher());
+      } else {
+        new LanguageSwitcher();
+      }
+    </script>
   </body>
 </html>
