@@ -1,6 +1,5 @@
 ---
 import "../styles/global.css";
-import animationsUrl from "../scripts/animations.js?url";
 
 const {
   title = "Scanium - AI Scanning for Resellers",
@@ -37,6 +36,8 @@ const {
   <body class="bg-navy text-text-primary">
     <a class="skip-link" href="#main">Skip to content</a>
     <slot />
-    <script type="module" src={animationsUrl}></script>
+    <script type="module">
+      import "../scripts/animations.js";
+    </script>
   </body>
 </html>
